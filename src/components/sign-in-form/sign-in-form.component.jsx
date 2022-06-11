@@ -40,8 +40,7 @@ const SignInForm = () => {
         password
       );
 
-      console.log(user);
-      //   resetFields();
+      resetFields();
     } catch (error) {
       switch (error.code) {
         case "auth/wrong-password":
@@ -58,9 +57,8 @@ const SignInForm = () => {
   };
 
   const signInWithGoogle = async () => {
-      console.log("sign in with google")
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    console.log("sign in with google");
+    await signInWithGooglePopup();
   };
 
   return (
