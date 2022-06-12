@@ -24,19 +24,19 @@ const CheckoutItem = ({ item }) => {
       <div className="image-container">
         <img src={imageUrl} alt={name} />
       </div>
-      <div className="name">{name}</div>
-      <div className="quantity">
+      <span className="name">{name}</span>
+      <span className="quantity">
         <div className="arrow" onClick={handleArrowDown}>
-          {"<"}
+          &#10094;
         </div>
-        <div className="value">{quantity}</div>
+        <span className="value">{quantity}</span>
         <div className="arrow" onClick={handleArrowUp}>
-          {">"}
+          &#10095;
         </div>
-      </div>
-      <div className="price">{price}</div>
+      </span>
+      <span className="price">{price}</span>
       <div className="remove-button" onClick={handleRemoveProduct}>
-        X
+        &#10005;
       </div>
     </div>
   );
