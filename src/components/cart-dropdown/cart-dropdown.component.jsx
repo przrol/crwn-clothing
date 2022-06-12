@@ -1,11 +1,23 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "../../contexts/cart.context";
 import Button from "../button/button.component";
+import CartItem from "../cart-item/cart-item.component";
 import "./cart-dropdown.styles.scss";
 
 const CartDropdown = () => {
+  const { cartItems, setIsCartOpen } = useContext(CartContext);
+
   return (
     <div className="cart-dropdown-container">
-      <div className="cart-items"></div>
-      <Button>go to checkout</Button>
+      <div className="cart-items">
+        {cartItems.map((item) => (
+          <CartItem key={item.id} cartItem={item} />
+        ))}
+      </div>
+      <Link onClick={() => setIsCartOpen(p => !p)} to="/checkout">
+        <Button style={{ fontWeight: "400" }}>go to checkout</Button>
+      </Link>
     </div>
   );
 };
